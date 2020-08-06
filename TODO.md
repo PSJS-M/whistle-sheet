@@ -6,3 +6,13 @@
 * RNN 학습해보기(Tensorflow)
 * Github Desktop 연습하기 (park)
 
+
+
+1. https://heropy.blog/2019/04/24/html-css-starter/
+
+2. https://www.tensorflow.org/js/tutorials?hl=ko
+
+3. https://velopert.com/tutorials
+
+   
+
