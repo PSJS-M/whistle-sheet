@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include("./head") %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#"> Whistle Sheet </a>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item active"><a href="/">시작하기</a></li>
+                <li class="nav-item"><a href="/record">레코드</a></li>
+                <li class="nav-item"><a href="/about">About</a></li>
+              </ul>
+            </div>
+          </nav>
+          
+          <div style="padding: 1rem;">
+            <h2>Whistle Sheet - 시작하기</h2>
+            <hr />
+            <p style="padding: 1rem; font-size: 1.725rem;">
+              whistle sheet는 음악적 지식이 없더라도 누구든지 멜로디를 만들어 볼
+              수 있는 웹사이트 입니다.<br />
+              지금 바로 마이크를 통해 자신의 휘파람의 음을 측정해 보고 녹음하여
+              멜로디를 생성해 보세요. 시작하기에 앞서 아래의 버튼을 통해
+              간단하게 자신의 음정을 테스트 해 볼 수도 있습니다.
+            </p>
+            <p class="text-center">
+              <button
+                id="toggleBtn"
+                type="button"
+                class="btn btn-primary"
+                onclick="this.innerText = togglePlayback()"
+              >
+                음정 테스트 시작하기
+              </button>
+            </p>
+
+            <div id="detector" class="vague">
+              <div class="pitch"><span id="pitch">--</span>Hz</div>
+              <div class="note"><span id="note">--</span></div>
+              <canvas id="output" width="300" height="42"></canvas>
+              <div id="detune">
+                <span id="detune_amt">--</span
+                ><span id="flat">cents &#9837;</span
+                ><span id="sharp">cents &#9839;</span>
+              </div>
+            </div>
+            <div style="margin-top: 1rem;">
+              <canvas id="waveform" width="512" height="150"></canvas>
+              <canvas id="pitchform" width="10" height="150"></canvas>
+            </div>
+          </div>
+
+          <%- include("./footer") %>
+        </div>
+        <div class="col-md-1 flex-center">
+          <a href="/record"
+            ><span class="glyphicon glyphicon-triangle-right"></span
+          ></a>
+      </div>
+    </div>
+
+    <%- include("./script") %>
+    <script src="js/pitchdetect.js"></script>
+  </body>
+</html>

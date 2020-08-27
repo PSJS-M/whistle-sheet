@@ -1,0 +1,155 @@
+[hidden] {
+  display: none !important;
+}
+
+#modelLoading {
+  margin: 14px auto;
+  padding: 6px 14px;
+  font-size: 22px;
+  display: block;
+  width: 300px;
+  background-color: transparent;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#modelLoading > span {
+  display: inline-block !important;
+  animation: pulsing-fade 1.2s ease-in-out infinite;
+}
+
+a:link:not(.img-link),
+a:visited:not(.img-link) {
+  text-decoration: none;
+}
+
+input[type="file"] {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  cursor: pointer;
+  display: none;
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.btn > .loading {
+  display: none;
+}
+
+.btn.working {
+  transition: background-color 0s ease-out;
+  opacity: 1;
+  color: black;
+}
+
+.working > .text {
+  display: none;
+}
+
+.working > .loading {
+  display: inline-block !important;
+  animation: pulsing-fade 1.2s ease-in-out infinite;
+}
+
+.btn.player {
+  width: 180px;
+  transition: opacity 0.4s ease-out;
+  margin: 0;
+}
+
+.btn.player:nth-child(1) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.btn.player:nth-child(2) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.button.player {
+  color:black;
+  opacity: 1;
+}
+
+.button.player.active {
+  background-color: #333333;
+  color:white
+  opacity: 0.5;
+}
+
+.btn.save {
+  display: block;
+  width: 140px;
+  margin: 0 auto;
+}
+
+.box {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  background: var(--top);
+}
+
+.top {
+  padding: 14px;
+  text-align: center;
+}
+
+.middle {
+  position: relative;
+  border-radius: 0;
+  padding: 16px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bottom {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#loading {
+  text-transform: uppercase;
+}
+
+#transcribingMessage {
+  padding: 40px;
+}
+#transcribingMessage[hidden] #safariWarning {
+  display: none !important;
+}
+
+#players {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#canvas {
+  margin-top: 1rem;
+  cursor: pointer;
+  background-color: #333333;
+}
+
+#recordingError {
+  opacity: 0.6;
+}
+
+@keyframes pulsing-fade {
+  50% {
+    opacity: 0.3;
+  }
+}

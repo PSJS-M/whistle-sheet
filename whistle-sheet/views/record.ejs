@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include("./head") %>
+    <link rel="stylesheet" href="css/style2.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.2"></script>
+    <script src="js/record.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1 col-md-offset-2 flex-center">
+          <a href="/"
+            ><span class="glyphicon glyphicon-triangle-left"></span
+          ></a>
+        </div>
+        <div class="col-md-6">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#"> Whistle Sheet </a>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item"><a href="/">시작하기</a></li>
+                <li class="nav-item active"><a href="/record">레코드</a></li>
+                <li class="nav-item"><a href="/about">About</a></li>
+              </ul>
+            </div>
+          </nav>
+          <div style="padding: 1rem">
+            <h2>Whistle Sheet - 레코드</h2>
+            <hr />
+            <h3>녹음한 휘파람을 음정에 맞춰 피아노 음으로 변경합니다!</h3>
+            <p style="padding: 1rem">
+              휘파람의 음이 피아노의 음으로 변경되고 이 음을 기반으로 멜로디를
+              생성합니다.
+            </p>
+            <div class="box">
+              <div class="top">
+                <div id="modelLoading">
+                  <span>Loading model...</span>
+                </div>
+
+                <div id="modelReady" hidden>
+                  <div id="buttons">
+                    <label class="btn btn-default" id="btnUpload" disabled>
+                      <span class="text"
+                        >MIDI파일 업로드<input type="file" id="fileInput"
+                      /></span>
+                    </label>
+                    <button class="btn btn-default" id="btnRecord" disabled>
+                      <span class="text">마이크 녹음</span>
+                    </button>
+                  </div>
+                  <div id="recordingError" hidden>
+                    지원하는 마이크가 없습니다.
+                  </div>
+                </div>
+              </div>
+              <div class="middle">
+                <div id="players" hidden>
+                  <button
+                    class="button player active"
+                    onclick="setActivePlayer(event, false)"
+                    id="pianoBtn"
+                  >
+                    피아노
+                  </button>
+                  <button
+                    class="button player"
+                    onclick="setActivePlayer(event, true)"
+                  >
+                    Synth
+                  </button>
+                </div>
+
+                <div id="transcribingMessage" hidden>
+                  긴 오디오는 변환에 시간이 오래걸릴수도 있습니다.
+                </div>
+
+                <div
+                  class="container"
+                  id="container"
+                  style="overflow-x: scroll; width: 510px"
+                  hidden
+                >
+                  <div class="row">
+                    <div class="col-md-6">
+                      <canvas id="canvas"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  class="btn btn-default save"
+                  onclick="saveMidi(event)"
+                  id="saveBtn"
+                  hidden
+                >
+                  멜로디 생성
+                </button>
+              </div>
+            </div>
+          </div>
+          <%- include("./footer") %>
+        </div>
+
+        <div class="col-md-1 flex-center">
+          <a href="/about"
+            ><span class="glyphicon glyphicon-triangle-right"></span
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <%- include("./script") %>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"
+      defer
+    ></script>
+  </body>
+</html>
